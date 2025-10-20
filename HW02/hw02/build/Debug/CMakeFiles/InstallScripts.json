@@ -1,8 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"C:/Users/vulpex/Desktop/RM/2025EC/HWs/HW02/hw02/build/Debug/cmake_install.cmake",
-		"C:/Users/vulpex/Desktop/RM/2025EC/HWs/HW02/hw02/build/Debug/cmake/stm32cubemx/cmake_install.cmake"
-	],
-	"Parallel" : false
-}
