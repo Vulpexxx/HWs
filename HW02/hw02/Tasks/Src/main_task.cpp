@@ -2,7 +2,7 @@
  * @Author: Vulpex 2267339737@qq.com
  * @Date: 2025-10-18 19:37:28
  * @LastEditors: Vulpex 2267339737@qq.com
- * @LastEditTime: 2025-10-20 15:56:06
+ * @LastEditTime: 2025-10-20 17:32:04
  * @FilePath: \HW02\Tasks\Src\main_task.cpp
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -37,9 +37,9 @@
 /* Private macro -------------------------------------------------------------*/
 #define TX_ID 0x1FE
 #define RX_ID 0x205
-#define KP 5.0f// 速度闭环用 20.0f
-#define KI 0.0f
-#define KD 0.0f
+#define KP 5.0f// 速度闭环用 10.0f
+#define KI 0.0f// 速度闭环用 0.1f
+#define KD 0.0f// 速度闭环用 0.5f
 // 弧度 -> 编码器值 (GM6020范围 0~8191 对应 0~2PI)
 #define RAD_TO_ENCODER(rad) ((rad) / (2.0f * M_PI) * 8192.0f)
 // 每次设定点变化的最大增量,防止突变剧烈震动
@@ -81,7 +81,7 @@ void MainInit(void){
 void MainTask(void){
   tick++;
 
-  if(tick % 1000 == 0) { // 每1秒切换一次状态
+  if(tick % 5000 == 0) { // 每5秒切换一次状态
     switch(stage) {
       case 0: target_angle = RAD_TO_ENCODER(POS_1A_RAD); break;
       case 1: target_angle = RAD_TO_ENCODER(POS_1B_RAD); break;

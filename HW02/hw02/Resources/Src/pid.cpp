@@ -23,12 +23,12 @@ PID::PID(float kp, float ki, float kd)
 int16_t PID::compute(float setpoint, float measured_value){
   float error = setpoint - measured_value;
 
-  // 处理环绕问题
-  if (error > 4096) {
-    error -= 8192;
-  } else if (error < -4096){
-    error += 8192;
-  }
+  // // 处理环绕问题
+  // if (error > 4096) {
+  //   error -= 8192;
+  // } else if (error < -4096){
+  //   error += 8192;
+  // }
 
   integral_ += error;
   float derivative = error - previous_error_;
